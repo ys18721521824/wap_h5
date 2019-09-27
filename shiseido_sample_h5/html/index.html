@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>资生堂</title>
+
+  <script>
+    if (/Android (\d+\.\d+)/.test(navigator.userAgent)) {
+      var version = parseFloat(RegExp.$1);
+      if (version > 2.3) {
+        var phoneScale = parseInt(window.screen.width) / 640;
+        document.write('<meta name="viewport" content="width=640, minimum-scale = ' + phoneScale + ', maximum-scale = ' + phoneScale + ', target-densitydpi=device-dpi">');
+      } else {
+        document.write('<meta name="viewport" content="width=640, target-densitydpi=device-dpi">');
+      }
+    } else {
+      document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+    }
+    var imgSrc = "__IMG__";
+  </script>
+  <script>!(function (a, b, c, d, e, f) {
+      var g = "", h = a.sessionStorage, i = "__admaster_ta_param__", j = "tmDataLayer" !== d ? "&dl=" + d : "";
+      if (a[f] = {}, a[d] = a[d] || [], a[d].push({ startTime: +new Date, event: "tm.js" }), h) {
+        var k = a.location.search,
+          l = new RegExp("[?&]" + i + "=(.*?)(&|#|$)").exec(k) || []; l[1] && h.setItem(i, l[1]), l = h.getItem(i),
+            l && (g = "&p=" + l + "&t=" + +new Date)
+      } var m = b.createElement(c), n = b.getElementsByTagName(c)[0]; m.src = "//tag.cdnmaster.cn/tmjs/tm.js?id=" + e + j + g,
+        m.async = !0, n.parentNode.insertBefore(m, n)
+    })(window, document, "script", "tmDataLayer", "TM-319351", "admaster_tm");</script>
+  <script src="__JS__/jquery.min.js"></script>
+  <script src="__JS__/swiper.min.js"></script>
+  <script src="__JS__/jsmpeg.min.js"></script>
+  <link rel="stylesheet" href="__CSS__/swiper.min.css">
+  <link rel="stylesheet" href="__CSS__/main.css?V=113">
+</head>
+
+<body>
+  <audio id="music" src="__IMG__/video.mp3"></audio>
+  <div class="index-wrap">
+    <div class="loading">
+      <img src="__IMG__/loading.jpg" alt="" />
+      <p>0%</p>
+    </div>
+    <div class="index-box swiper-container swiper-container-vertical">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide box_1">
+          <div class="main-box">
+            <canvas id="canvas1" width="640" height="600"></canvas>
+            <div class="button"></div>
+            <div class="pull"></div>
+          </div>
+        </div>
+        <div class="swiper-slide box_2">
+          <div class="main-box">
+            <canvas id="video_2" width="640" height="1290"></canvas>
+            <div class="button"></div>
+          </div>
+        </div>
+        <div class="swiper-slide box_3  swiper-no-swiping">
+          <div class="new_index_box">
+            <img src="__IMG__/four2.jpg" alt="">
+
+            <input type="text" class="name" maxlength="5" placeholder="姓名">
+            <input type="text" class="mobile" maxlength="11" placeholder="手机号">
+            <input type="text" class="pasword" placeholder="输入验证码">
+            <button class="codeBtn">获取验证码</button>
+            <select id="city">
+              <option value="0"></option>
+            </select>
+            <select id="bar">
+              <option value="0"></option>
+            </select>
+            <div class="rule"></div>
+            <div class="xieyi1 "></div>
+            <button class="link1"></button>
+            <div class="submit">
+              <img src="__IMG__/btn.jpg" alt="">
+            </div>
+
+          </div>
+          <div class="bad">
+            <img src="__IMG__/move.png" alt="" class="show">
+            <div class="add"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="success">
+      <img src="__IMG__/success3.jpg" alt="">
+      <button class="close"></button>
+      <button class="back"></button>
+    </div>
+    <div class="picter">
+      <img src="__IMG__/nine.jpg" class="picter-one">
+      <div>
+        <img src="__IMG__/one.png" class="actone">
+      </div>
+
+      <button class="close1"></button>
+    </div>
+  </div>
+  <script src="__JS__/main.js"></script>
+  </div>
+  <script src="__JS__/createjs.min.js"></script>
+  <script src="__JS__/main.js?v=1.0"></script>
+  <script src="__JS__/loading.js"></script>
+</body>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+  wx.config({
+    debug: false,
+    appId: '{$signPackage.appId}',
+    timestamp: '{$signPackage.timestamp}',
+    nonceStr: '{$signPackage.nonceStr}',
+    signature: '{$signPackage.signature}',
+    jsApiList: [
+      'checkJsApi',
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage',
+      'onMenuShareQQ',
+      'onMenuShareWeibo',
+      'hideMenuItems',
+      'showMenuItems',
+      'hideAllNonBaseMenuItem',
+      'showAllNonBaseMenuItem'
+    ]
+  })
+  var shareData64 = {
+    title: '邀您体验资生堂电眼小腰睛',
+    desc: '提升肌肤抵御力，放眼年轻未来',
+    imgUrl: 'https://utm.shiseido.com.cn/public/static/share.png',
+    link: '{$share_link}',
+    success: function () {
+      // alert("分享成功!");
+    }
+  }
+  wx.ready(function () {
+    // player1.audioOut.unlock();
+    //默认显示
+    wx.showOptionMenu()
+    wx.onMenuShareAppMessage(shareData64)
+    wx.onMenuShareTimeline(shareData64)
+    wx.onMenuShareQZone(shareData64)
+    wx.onMenuShareWeibo(shareData64)
+    wx.onMenuShareQQ(shareData64)
+  })
+</script>
+
+</html>
